@@ -5,7 +5,7 @@ prefixes:
 mappings:
   person:
     sources:
-      - ['people.csv~csv', '$.persons[*]']
+      - ['people.csv~csv', '$.[*]']
     s: https://example.com/person/$(id)
     po:
       - [a, foaf:Person]
@@ -16,7 +16,7 @@ mappings:
       - [org:memberOf, $(org-id)]
   organization:
     sources:
-      - ['organizations.json~jsonpath', '$.orgs[*]']
+      - ['organizations.json~jsonpath', '$.[*]']
     s:  https://example.com/organization/$(id)
     po:
         - [a, org:Organization]
