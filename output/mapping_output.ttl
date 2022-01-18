@@ -1,6 +1,12 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
+<https://example.com/organization/avngrs> a <http://www.w3.org/ns/orgOrganization>;
+  foaf:name "Avengers" .
+
+<https://example.com/organization/new-u> a <http://www.w3.org/ns/orgOrganization>;
+  foaf:name "New U Technologies" .
+
 <https://example.com/person/0> a foaf:Person;
   <http://www.w3.org/ns/orgmemberOf> "new-u";
   foaf:firstName "Gwendolyne";
