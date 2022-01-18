@@ -1,34 +1,30 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<https://example.com/organization/avngrs> a foaf:Organization;
-  foaf:member <https://example.com/person/1>, <https://example.com/person/2>;
-  foaf:name "Avengers" .
-
-<https://example.com/organization/new-u> a foaf:Organization;
-  foaf:member <https://example.com/person/0>, <https://example.com/person/3>;
-  foaf:name "New U Technologies" .
-
 <https://example.com/person/0> a foaf:Person;
-  foaf:familyName "Stacy";
-  foaf:givenName "Gwendolyne";
+  <http://www.w3.org/ns/orgmemberOf> "new-u";
+  foaf:firstName "Gwendolyne";
+  foaf:lastName "Stacy";
   foaf:name "";
   foaf:nick "Gwen" .
 
 <https://example.com/person/1> a foaf:Person;
-  foaf:familyName "";
-  foaf:givenName "";
+  <http://www.w3.org/ns/orgmemberOf> "avngrs";
+  foaf:firstName "";
+  foaf:lastName "";
   foaf:name "T'Challa";
   foaf:nick "Black Panther" .
 
 <https://example.com/person/2> a foaf:Person;
-  foaf:familyName "Maximoff";
-  foaf:givenName "Wanda";
+  <http://www.w3.org/ns/orgmemberOf> "avngrs";
+  foaf:firstName "Wanda";
+  foaf:lastName "Maximoff";
   foaf:name "";
   foaf:nick "Scarlet Witch" .
 
 <https://example.com/person/3> a foaf:Person;
-  foaf:familyName "Clarkson";
-  foaf:givenName "Rita";
+  <http://www.w3.org/ns/orgmemberOf> "new-u";
+  foaf:firstName "Rita";
+  foaf:lastName "Clarkson";
   foaf:name "";
   foaf:nick "" .
