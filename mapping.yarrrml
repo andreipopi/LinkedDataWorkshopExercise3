@@ -1,26 +1,23 @@
+prefixes:
+  foaf: "http://xmlns.com/foaf/0.1/"
+  org: "http://www.w3.org/ns/org"
+  
 mappings:
-  people:
+  person:
     sources:
-      - [ people.csv~csv ]
+      - ['people.csv~csv', '$.persons[*]']
     s: https://example.com/person/$(id)
     po:
-      - [ a, foaf:Person ]
-      - [ foaf:givenName, $(firstname) ]
-      - [ foaf:familyName, $(lastname) ]
-      - [ foaf:name, $(name) ]
-      - [ foaf:nick, $(nickname) ]
-  organizations:
+      - [a, foaf:Person]
+      - [foaf:firstName, $(firstname)]
+      - [foaf:lastName, $(lastname)]
+      - [foaf:name, $(name)]
+      - [foaf:nick, $(nickname)]
+      - [org:memberOf, $(org-id)]
+  organization:
     sources:
-      - [ organizations.json~jsonpath, "$.[*]" ]
-    s: https://example.com/organization/$(id)
+      - ['organizations.json~jsonpath', '$.orgs[*]']
+    s:  https://example.com/organization/$(id)
     po:
-      - [ a, foaf:Organization ]
-      - [ foaf:name, $(name) ]
-      - p: foaf:member
-        o:
-          - mapping: people
-            condition:
-              function: equal
-              parameters:
-                - [ str1, $(id), s ]
-                - [ str2, $(org-id), o ]
+        - [a, org:Organization]
+        - [foaf:name, $(name)]
