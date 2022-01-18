@@ -1,0 +1,26 @@
+mappings:
+  people:
+    sources:
+      - [ people.csv~csv ]
+    s: https://example.com/person/$(id)
+    po:
+      - [ a, foaf:Person ]
+      - [ foaf:givenName, $(firstname) ]
+      - [ foaf:familyName, $(lastname) ]
+      - [ foaf:name, $(name) ]
+      - [ foaf:nick, $(nickname) ]
+  organizations:
+    sources:
+      - [ organizations.json~jsonpath, "$.[*]" ]
+    s: https://example.com/organization/$(id)
+    po:
+      - [ a, foaf:Organization ]
+      - [ foaf:name, $(name) ]
+      - p: foaf:member
+        o:
+          - mapping: people
+            condition:
+              function: equal
+              parameters:
+                - [ str1, $(id), s ]
+                - [ str2, $(org-id), o ]
